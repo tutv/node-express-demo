@@ -8,7 +8,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
-    res.send('Hello world.')
+    res.send('Hello, world!')
 })
 
 const todo = require('./todo')
