@@ -17,6 +17,8 @@ app.get('/todos/:id', todo.get)
 app.post('/todos/:id', todo.update)
 app.delete('/todos/:id', todo.delete)
 
-app.listen(3000, () => {
-    console.log('App is listening on port 3000...')
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+    console.log(`App is listening on port PORT...`)
 })
