@@ -12,6 +12,7 @@ app.get('/', (req, res) => {
 })
 
 const todo = require('./todo')
+app.get('/todos', todo.list)
 app.post('/todos', todo.create)
 app.get('/todos/:id', todo.get)
 app.post('/todos/:id', todo.update)

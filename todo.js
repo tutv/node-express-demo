@@ -1,5 +1,22 @@
 const Todo = require('./models/Todo')
 
+exports.list = async (req, res) => {
+    const {page, limit} = req.query
+    const p = page ? parseInt(page, 10) : 1
+    const l = limit ? parseInt(limit, 10) : 10
+    const skip = (p - 1) * l
+
+    const todos = await Todo.find({})
+        .skip(skip)
+        .limit(l)
+        .sort({
+            created: -1
+        })
+        .lean()
+
+    res.send(todos)
+}
+
 exports.create = async (req, res) => {
     const {title} = req.body
 
