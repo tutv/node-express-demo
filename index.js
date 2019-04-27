@@ -1,9 +1,10 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-
+const errorHandler = require('errorhandler')
 
 const app = express()
 
+app.use(errorHandler())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
